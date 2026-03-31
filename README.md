@@ -64,3 +64,4 @@ contract BaseLucky10 {
         return "BaseLucky10 - Pay 0.001 ETH to guess 1-10 and win 18x!";
     }
 }
+# Lucky UPDATA
