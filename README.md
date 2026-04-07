@@ -29,7 +29,7 @@ contract BaseLucky10 {
         require(msg.value == 0.001 ether, "Must pay exactly 0.001 ETH");
         require(_number >= 1 && _number <= 10, "Number must be between 1 and 10");
 
-        // 生成幸运数字 1~10
+        // LuckyNumber 1~10
         uint256 random = uint256(keccak256(abi.encodePacked(
             block.prevrandao,
             msg.sender,
@@ -41,10 +41,10 @@ contract BaseLucky10 {
         uint256 payout = 0;
 
         if (_number == luckyNumber) {
-            payout = 0.018 ether;           // 18x 大奖
+            payout = 0.018 ether;           // 18x lotter
             payable(msg.sender).transfer(payout);
         } else {
-            treasuryBalance += msg.value;   // 未中奖进入金库
+            treasuryBalance += msg.value;   // false
         }
 
         emit NumberGuessed(msg.sender, _number, luckyNumber, msg.value, payout, block.timestamp);
